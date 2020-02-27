@@ -23,7 +23,7 @@
 #define TFT_BL          4  // Display backlight control pin
 #define ADC_EN          14
 #define ADC_PIN         34
-#define BUTTON_1        35
+#define BUTTON_1        27
 #define BUTTON_2        0
 
 TFT_eSPI tft = TFT_eSPI(135, 240); // Invoke custom library
@@ -177,6 +177,9 @@ void setup()
 
 void loop()
 {
+    if (millis() % 5000==0) {
+      btnCick = !btnCick;  
+    }
     if (btnCick) {
         showVoltage();
     }
