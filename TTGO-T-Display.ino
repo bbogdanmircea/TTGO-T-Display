@@ -51,9 +51,10 @@ void showVoltage()
         float battery_voltage = ((float)v / 4095.0) * 2.0 * 3.3 * (vref / 1000.0);
         String voltage = "Voltage :" + String(battery_voltage) + "V";
         Serial.println(voltage);
+        tft.setRotation(1);
         tft.fillScreen(TFT_BLACK);
         tft.setTextDatum(MC_DATUM);
-        tft.drawString(voltage,  tft.width() / 2, tft.height() / 2 );
+        tft.drawString(voltage,  tft.width() / 2, tft.height() / 2, 2);
     }
 }
 
@@ -148,7 +149,7 @@ void setup()
     espDelay(5000);
 
     tft.setRotation(0);
-    int i = 5;
+    int i = 1;
     while (i--) {
         tft.fillScreen(TFT_RED);
         espDelay(1000);
